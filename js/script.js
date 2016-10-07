@@ -11,12 +11,12 @@ $('#btn-intro').click(function(){
 });
 
 var panier = [];
-var salad = {label: "Salade composée", type: "entrée", prix: 8, img: "img/salad.jpg", qt: 0};
+var salad = {label: "Salade", type: "entrée", prix: 8, img: "img/salad.jpg", qt: 0};
 var steak = {label: "Steak", type: "plat", prix: 15, img: "img/steak.jpg", qt: 0};
-var icecream = {label: "Coupe de glace", type: "dessert", prix: 5, img: "img/icecream.jpg", qt: 0};
+var icecream = {label: "Glace", type: "dessert", prix: 5, img: "img/icecream.jpg", qt: 0};
 var drink = { label: "Boisson", type: "Boisson", prix: 5, img: "img/drink.jpg", qt: 0};
-var fish = {label: "Assiète de poisson", type: "plat", prix: 5, img: "img/fish.jpg", qt: 0};
-var cheese = {label: "Assiète de fromage", type: "dessert", prix: 5, img: "img/cheese.jpg", qt: 0};
+var fish = {label: "poisson", type: "plat", prix: 5, img: "img/fish.jpg", qt: 0};
+var cheese = {label: "fromage", type: "dessert", prix: 5, img: "img/cheese.jpg", qt: 0};
 
 
 $('#img-salad').on('click', clickAcheter);
@@ -102,13 +102,17 @@ function ajouterLigneDetail(article) {
   tdType.append(type);
   tr.append(tdType);
 
+  
 
   var tdqantity = $("<td></td>");
   quantity = $("<span></span>");
   quantity.text(article.qt);
+  quantity.attr("id", "QT-" + article.label);
   tdqantity.append(quantity);
   tr.append(tdqantity);
   
+  
+
   var tdPrix = $("<td></td>");
   var prix = $("<span></span>");
   prix.text(article.prix.toString());
@@ -118,6 +122,7 @@ function ajouterLigneDetail(article) {
   var tdPrixTotal = $("<td></td>");
   prixTotal = $("<span></span>");
   prixTotal.text(article.prix*article.qt);
+  prixTotal.attr("id", "PX-" + article.label);
   tdPrixTotal.append(prixTotal);
   tr.append(tdPrixTotal);
   
@@ -125,8 +130,8 @@ function ajouterLigneDetail(article) {
 
 }
 else if (article.qt > 1) {
-  quantity.text(article.qt);
-  prixTotal.text(article.prix*article.qt);
+  $("#QT-" + article.label).text(article.qt);
+  $("#PX-" + article.label).text(article.prix*article.qt);
 }
 
 }
