@@ -1,0 +1,13 @@
+<svg id="tick-svg-node" version="1.1"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 x="0px" y="0px" width="149px" height="149px" viewBox="0 0 149 149" enable-background="new 0 0 149 149" xml:space="preserve">
+<defs>
+</defs>
+ <path id="tick-outline-bg" fill="none" stroke="#ecf0f1" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+	M145,74.5c0,38.9-31.6,70.5-70.5,70.5S4,113.4,4,74.5S35.6,4,74.5,4S145,35.6,145,74.5z"/>
+<path id="tick-outline" fill="none" stroke="#ecf0f1" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+	M145,74.5c0,38.9-31.6,70.5-70.5,70.5S4,113.4,4,74.5S35.6,4,74.5,4S145,35.6,145,74.5z"/>
+<path id="tick" fill="none" stroke="#ecf0f1" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+	M111,48L64.1,94.4L10.4,45.1"/>
+  
+</svg>
