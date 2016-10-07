@@ -10,7 +10,6 @@ $('#btn-intro').click(function(){
 
 });
 
-var total = 0;
 var panier = [];
 var salad = {label: "Salade composée", type: "entrée", prix: 8, img: "img/salad.jpg", qt: 0};
 var steak = {label: "Steak", type: "plat", prix: 15, img: "img/steak.jpg", qt: 0};
@@ -33,10 +32,8 @@ $('#cart-top').on('click', function() {
 
 
 
-
 function clickAcheter() {
   if(this.id == 'img-salad') {
-   
     ajouterArticle(salad);
   }
   if(this.id == 'img-steak') {
@@ -58,24 +55,17 @@ function clickAcheter() {
 
 function ajouterArticle(article) {
   panier.push(article);
-  //total += article.prix;
-
   updatepanier(article);
-
-
 }
 
 function updatepanier(article) {
   var totalPrix =0;
   for(var i = 0; i < panier.length; i++) {
     totalPrix += panier[i].prix;
-    console.log(totalPrix);
-  }
+    }
 
   $('#totarticle').text("  " + panier.length + "  ");
-  $('#totprice').text("   " + totalPrix/*.toString()*/ + "   ");
-  
-
+  $('#totprice').text("   " + totalPrix + "   ");
   
   article.qt += 1;
 
@@ -85,62 +75,59 @@ function updatepanier(article) {
 
 
 function ajouterLigneDetail(article) {
-  var tr = document.createElement("tr");
+  tr = $("<tr></tr>");
+
+  if (article.qt == 1) {
+
+  var tdImage = $("<td></td>");
+
+  var img = $("<img>");
+  img.attr("src", article.img);
+
+  tdImage.append(img);
+
+  tr.append(tdImage);
   
-  var tdImage = document.createElement("td");
-  var img = document.createElement("img");
-  img.src = article.img;
-  tdImage.appendChild(img);
-  tr.appendChild(tdImage);
+
+  var tdLabel = $("<td></td>");
+  var label = $("<span></span>");
+  label.text(article.label);
+  tdLabel.append(label);
+  tr.append(tdLabel);
   
-  var tdLabel = document.createElement("td");
-  var label = document.createElement("span");
-  label.textContent = article.label;
-  tdLabel.appendChild(label);
-  tr.appendChild(tdLabel);
+
+  var tdType = $("<td></td>");
+  var type = $("<span></span>");
+  type.text(article.type);
+  tdType.append(type);
+  tr.append(tdType);
+
+
+  var tdqantity = $("<td></td>");
+  quantity = $("<span></span>");
+  quantity.text(article.qt);
+  tdqantity.append(quantity);
+  tr.append(tdqantity);
   
-  var tdType = document.createElement("td");
-  var type = document.createElement("span");
-  type.textContent = article.type;
-  tdType.appendChild(type);
-  tr.appendChild(tdType);
+  var tdPrix = $("<td></td>");
+  var prix = $("<span></span>");
+  prix.text(article.prix.toString());
+  tdPrix.append(prix);
+  tr.append(tdPrix);
 
-  var tdqantity = document.createElement("td");
-  var quantity = document.createElement("span");
-  quantity.textContent = article.qt;
-  tdqantity.appendChild(quantity);
-  tr.appendChild(tdqantity);
+  var tdPrixTotal = $("<td></td>");
+  prixTotal = $("<span></span>");
+  prixTotal.text(article.prix*article.qt);
+  tdPrixTotal.append(prixTotal);
+  tr.append(tdPrixTotal);
   
-  var tdPrix = document.createElement("td");
-  var prix = document.createElement("span");
-  prix.textContent = article.prix.toString();
-  tdPrix.appendChild(prix);
-  tr.appendChild(tdPrix);
-
-  var tdPrixTotal = document.createElement("td");
-  var prixTotal = document.createElement("span");
-  prixTotal.textContent = article.prix*article.qt;
-  tdPrixTotal.appendChild(prixTotal);
-  tr.appendChild(tdPrixTotal);
-  
-  document.getElementById('cart-detail-table').appendChild(tr);
-}
-
-
-
-/*
-
-function ajouterLigneDetail(article) {
-
-var tr = $(document).append("<tr></tr>")
-var tdImage = $(document).append("<td></td>");
-var img = $(document).append("<img></img>");
-
-  img.src = article.img;
-  tdImage.appendChild(img);
-  tr.appendChild(tdImage);
-
+  $('#cart-detail-table').append(tr);
 
 }
+else if (article.qt > 1) {
+  quantity.text(article.qt);
+  prixTotal.text(article.prix*article.qt);
+}
 
-*/
+}
+
