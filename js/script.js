@@ -7,48 +7,17 @@ $( document ).ready(function() {
 $('#btn-intro').click(function(){
   $('#intro').addClass('animated fadeOutDown none');
   $('#main').show();
+
 });
 
 var total = 0;
 var panier = [];
-var salad = {
-  label: "Salade composée",
-  type: "entrée",
-  prix: 8,
-  img: "img/salad.jpg"
-};
-var steak = {
-  label: "Steak",
-  type: "plat",
-  prix: 15,
-  img: "img/steak.jpg"
-};
-var icecream = {
-  label: "Coupe de glace",
-  type: "dessert",
-  prix: 5,
-  img: "img/icecream.jpg"
-};
-var drink = {
-  label: "Boisson",
-  type: "Boisson",
-  prix: 5,
-  img: "img/drink.jpg"
-};
-var fish = {
-  label: "Assiète de poisson",
-  type: "plat",
-  prix: 5,
-  img: "img/fish.jpg"
-};
-var cheese = {
-  label: "Assiète de fromage",
-  type: "dessert",
-  prix: 5,
-  img: "img/cheese.jpg"
-};
-
-
+var salad = {label: "Salade composée", type: "entrée", prix: 8, img: "img/salad.jpg", qt: 0};
+var steak = {label: "Steak", type: "plat", prix: 15, img: "img/steak.jpg", qt: 0};
+var icecream = {label: "Coupe de glace", type: "dessert", prix: 5, img: "img/icecream.jpg", qt: 0};
+var drink = { label: "Boisson", type: "Boisson", prix: 5, img: "img/drink.jpg", qt: 0};
+var fish = {label: "Assiète de poisson", type: "plat", prix: 5, img: "img/fish.jpg", qt: 0};
+var cheese = {label: "Assiète de fromage", type: "dessert", prix: 5, img: "img/cheese.jpg", qt: 0};
 
 
 $('#img-salad').on('click', clickAcheter);
@@ -60,7 +29,6 @@ $('#img-cheese').on('click', clickAcheter);
 
 $('#cart-top').on('click', function() {
   $('#cart-detail').toggle();
-  
 });
 
 
@@ -68,7 +36,7 @@ $('#cart-top').on('click', function() {
 
 function clickAcheter() {
   if(this.id == 'img-salad') {
-    console.log('click');
+   
     ajouterArticle(salad);
   }
   if(this.id == 'img-steak') {
@@ -90,35 +58,30 @@ function clickAcheter() {
 
 function ajouterArticle(article) {
   panier.push(article);
-  total += article.prix;
+  //total += article.prix;
+
+  updatepanier(article);
+
+
+}
+
+function updatepanier(article) {
+  var totalPrix =0;
+  for(var i = 0; i < panier.length; i++) {
+    totalPrix += panier[i].prix;
+    console.log(totalPrix);
+  }
 
   $('#totarticle').text("  " + panier.length + "  ");
-  $('#totprice').text("   " + total.toString() + "   ");
+  $('#totprice').text("   " + totalPrix/*.toString()*/ + "   ");
   
+
   
-  //
-  //$('#texte-panier').text('J\'ai pris ' + panier.length + ' article(s) pour un total de ' +   + '€');
+  article.qt += 1;
+
   ajouterLigneDetail(article);
-  //$('#details-panier').show();
+
 }
-
-
-/*function supprimerArticle(article) {
-  var i = 0;
-  var firstId = -1;
-  while((i < panier.length) && (firstId == -1)) {
-    if(panier[i] == article) {
-      firstId = i;
-    }
-    i++;
-  }
-  if(firstId >= 0) {
-    delete panier[firstId];
-  }
-  rafraichirPanier();
-}
-
-*/
 
 
 function ajouterLigneDetail(article) {
@@ -141,19 +104,43 @@ function ajouterLigneDetail(article) {
   type.textContent = article.type;
   tdType.appendChild(type);
   tr.appendChild(tdType);
+
+  var tdqantity = document.createElement("td");
+  var quantity = document.createElement("span");
+  quantity.textContent = article.qt;
+  tdqantity.appendChild(quantity);
+  tr.appendChild(tdqantity);
   
   var tdPrix = document.createElement("td");
   var prix = document.createElement("span");
   prix.textContent = article.prix.toString();
   tdPrix.appendChild(prix);
   tr.appendChild(tdPrix);
+
+  var tdPrixTotal = document.createElement("td");
+  var prixTotal = document.createElement("span");
+  prixTotal.textContent = article.prix*article.qt;
+  tdPrixTotal.appendChild(prixTotal);
+  tr.appendChild(tdPrixTotal);
   
   document.getElementById('cart-detail-table').appendChild(tr);
 }
 
 
 
+/*
+
+function ajouterLigneDetail(article) {
+
+var tr = $(document).append("<tr></tr>")
+var tdImage = $(document).append("<td></td>");
+var img = $(document).append("<img></img>");
+
+  img.src = article.img;
+  tdImage.appendChild(img);
+  tr.appendChild(tdImage);
 
 
+}
 
-
+*/
