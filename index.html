@@ -34,10 +34,10 @@
 
 <div class="container-fluid" id="intro">
 	<img src="img/backgroundintro.jpg">
-	<div class=" animated fadeInDown" id="txt-intro"><h1>Bienvenue sur UberFood</h1>
-	<h2>UberFood vous permet de vous faire livrer les meilleurs plats dans les meilleurs délais</h2>
-	<button class="btn-intro" id="btn-intro">Voir nos menu</button>
-	</div>
+	<figcaption class="" id="txt-intro"><h1 class="title">Bienvenue sur UberFood</h1>
+	<h2 class="title">UberFood vous permet de vous faire livrer les meilleurs plats dans les meilleurs délais</h2>
+	<button class="btn-intro" id="btn-intro">Voir nos produits</button>
+	</figcaption>
 </div>
 <div id="main">
 <header class="container-fluid header">
@@ -47,29 +47,53 @@
 <div class="container menu">
 	<div class="row">	
 		<div class="col-xs-4 divproduit">
-			<img class="img-responsive" id="img-Salade" src="img/salad.jpg">
-			<p class="description">Salades composées</p>
+			<div id="testimg"><img class="img-responsive" id="img-Salade" src="img/salad.jpg"></div>
+			<div class="description" id="description-salad"> 
+			<p>Salades composées</p>
+			<p>Prix: 15€</p>
+			<button class="btn-cart" id="btn-menu-salad">Ajouter</button>	
+			</div>
 		</div>
 		<div class="col-xs-4 divproduit">
 			<img id="img-Steak" src="img/steak.jpg">
-			<p class="description">Steack</p>
+			<div class="description" id="description-steak"> 
+			<p>Steack</p>
+			<p>Prix: 15€</p>
+			<button class="btn-cart" id="btn-menu-steak">Ajouter</button>	
+			</div>
 		</div>
 		<div class="col-xs-4 divproduit">
 			<img id="img-Glace" src="img/icecream.jpg">
-			<p class="description">Coupe de glace</p>
+			<div class="description" id="description-glace"> 
+			<p>Coupe de glaces</p>
+			<p>Prix: 15€</p>
+			<button class="btn-cart" id="btn-menu-glace">Ajouter</button>	
+			</div>
 		</div>
 
 		<div class="col-xs-4 divproduit">
 			<img id="img-Boisson" src="img/drink.jpg">
-			<p class="description">Boissons</p>
+			<div class="description" id="description-boissons"> 
+			<p>Boissons</p>
+			<p>Prix: 15€</p>
+			<button class="btn-cart" id="btn-menu-boissons">Ajouter</button>	
+			</div>
 		</div>
 		<div class="col-xs-4 divproduit">
 			<img id="img-poisson" src="img/fish.jpg">
-			<p class="description">Assiète de poissons</p>
+			<div class="description" id="description-poissons"> 
+			<p>Assiète de poissons</p>
+			<p>Prix: 15€</p>
+			<button class="btn-cart" id="btn-menu-poissons">Ajouter</button>	
+			</div>
 		</div>
 		<div class="col-xs-4 divproduit">
 			<img id="img-fromage" src="img/cheese.jpg">
-			<p class="description">Assiete de fromages</p>
+			<div class="description" id="description-fromage"> 
+			<p>Assiète de fromages</p>
+			<p>Prix: 15€</p>
+			<button class="btn-cart" id="btn-menu-fromage">Ajouter</button>	
+			</div>
 		</div>
 
 	</div>

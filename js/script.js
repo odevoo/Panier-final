@@ -2,6 +2,12 @@
 $( document ).ready(function() {
   $('#cart-detail').hide();
   $('#main').hide();
+  $('#description-salad').hide();
+  $('#description-steak').hide();
+  $('#description-glace').hide();
+  $('#description-boissons').hide();
+  $('#description-poissons').hide();
+  $('#description-fromage').hide();
 });
 
 $('#btn-intro').click(function(){
@@ -25,12 +31,25 @@ var drinkQt = {qt: 0};
 var fishQt = {qt: 0};
 var cheeseQt = {qt: 0};
 
-$('#img-Salade').on('click', function() { ajouterArticle(salad, saladQt); });
-$('#img-Steak').on('click', function() { ajouterArticle(steak, steakQt); });
-$('#img-Glace').on('click', function() {  ajouterArticle(icecream, icecreamQt); });
-$('#img-Boisson').on('click', function() { ajouterArticle(drink, drinkQt); });
-$('#img-poisson').on('click', function() { ajouterArticle(fish, fishQt); });
-$('#img-fromage').on('click', function() { ajouterArticle(cheese, cheeseQt); });
+$('#img-Salade').on('mouseover', function(){  $('#description-salad').show(); });
+$('#img-Steak').on('mouseover', function(){  $('#description-steak').show(); });
+$('#img-Glace').on('mouseover', function(){  $('#description-glace').show(); });
+$('#img-Boisson').on('mouseover', function(){  $('#description-boissons').show(); });
+$('#img-poisson').on('mouseover', function(){  $('#description-poissons').show(); });
+$('#img-fromage').on('mouseover', function(){  $('#description-fromage').show(); });
+$('#description-salad').on('mouseout', function(){  $('#description-salad').hide(); });
+$('#description-steak').on('mouseout', function(){  $('#description-steak').hide(); });
+$('#description-glace').on('mouseout', function(){  $('#description-glace').hide(); });
+$('#description-boissons').on('mouseout', function(){  $('#description-boissons').hide(); });
+$('#description-poissons').on('mouseout', function(){  $('#description-poissons').hide(); });
+$('#description-fromage').on('mouseout', function(){  $('#description-fromage').hide(); });
+
+$('#btn-menu-salad').on('click', function() { ajouterArticle(salad, saladQt); });
+$('#btn-menu-steak').on('click', function() { ajouterArticle(steak, steakQt); });
+$('#btn-menu-glace').on('click', function() {  ajouterArticle(icecream, icecreamQt); });
+$('#btn-menu-boissons').on('click', function() { ajouterArticle(drink, drinkQt); });
+$('#btn-menu-poissons').on('click', function() { ajouterArticle(fish, fishQt); });
+$('#btn-menu-fromage').on('click', function() { ajouterArticle(cheese, cheeseQt); });
 
 $(document).on("click", "#addBtn-Salade", function(){ ajouterArticle(salad, saladQt); });
 $(document).on('click', '#addBtn-Steak', function() { ajouterArticle(steak, steakQt); });
@@ -111,7 +130,7 @@ function ajouterLigneDetail(article, articleQt) {
     addButton = $("<button></button>");
     addButton.text("Ajouter");
     addButton.attr("id", "addBtn-" + article.label);
-    addButton.addClass("btn-intro");
+    addButton.addClass("btn-cart");
     tdAddButton.append(addButton);
     tr.append(tdAddButton);
 
@@ -119,7 +138,7 @@ function ajouterLigneDetail(article, articleQt) {
     reButton = $("<button></button>");
     reButton.text("Retirer");
     reButton.attr("id", "reBtn-" + article.label);
-    reButton.addClass("btn-intro");
+    reButton.addClass("btn-cart");
     tdReButton.append(reButton);
     tr.append(tdReButton);
 
