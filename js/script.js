@@ -37,7 +37,7 @@ $('#img-Glace').on('mouseover', function(){  $('#description-glace').show(); });
 $('#img-Boisson').on('mouseover', function(){  $('#description-boissons').show(); });
 $('#img-poisson').on('mouseover', function(){  $('#description-poissons').show(); });
 $('#img-fromage').on('mouseover', function(){  $('#description-fromage').show(); });
-$('#description-salad').on('mouseout', function(){  $('#description-salad').hide(); });
+$('#description-salad').on('mouseout', function(){  $('#description-salad').hide("slow"); });
 $('#description-steak').on('mouseout', function(){  $('#description-steak').hide(); });
 $('#description-glace').on('mouseout', function(){  $('#description-glace').hide(); });
 $('#description-boissons').on('mouseout', function(){  $('#description-boissons').hide(); });
