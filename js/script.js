@@ -1,4 +1,8 @@
 
+//http://www.creativebloq.com/jquery/top-jquery-plugins-6133175
+//http://masonry.desandro.com/
+
+
 $( document ).ready(function() {
   $('#cart-detail').hide();
   $('#main').hide();
@@ -37,7 +41,7 @@ $('#img-Glace').on('mouseover', function(){  $('#description-glace').show(); });
 $('#img-Boisson').on('mouseover', function(){  $('#description-boissons').show(); });
 $('#img-poisson').on('mouseover', function(){  $('#description-poissons').show(); });
 $('#img-fromage').on('mouseover', function(){  $('#description-fromage').show(); });
-$('#description-salad').on('mouseout', function(){  $('#description-salad').hide("slow"); });
+$('#description-salad').on('mouseout', function(){  $('#description-salad').hide(); });
 $('#description-steak').on('mouseout', function(){  $('#description-steak').hide(); });
 $('#description-glace').on('mouseout', function(){  $('#description-glace').hide(); });
 $('#description-boissons').on('mouseout', function(){  $('#description-boissons').hide(); });
@@ -92,7 +96,13 @@ function ajouterLigneDetail(article, articleQt) {
   tr = $("<tr></tr>");
 
   if (articleQt.qt == 1) {
-    var tdImage = $("<td></td>");
+
+
+    var tdAddButton = $("<td></td>");
+    addButton = $("<button></button>");
+    addButton.text("Ajouter");
+    addButton.attr("id", "addBtn-" + article.label);
+    addButton.addClass("btn-cart");    var tdImage = $("<td></td>");
     var img = $("<img>");
     img.attr("src", article.img);
     tdImage.append(img);
@@ -125,12 +135,6 @@ function ajouterLigneDetail(article, articleQt) {
     prixTotal.attr("id", "PX-" + article.label);
     tdPrixTotal.append(prixTotal);
     tr.append(tdPrixTotal);
-
-    var tdAddButton = $("<td></td>");
-    addButton = $("<button></button>");
-    addButton.text("Ajouter");
-    addButton.attr("id", "addBtn-" + article.label);
-    addButton.addClass("btn-cart");
     tdAddButton.append(addButton);
     tr.append(tdAddButton);
 
