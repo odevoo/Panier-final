@@ -6,12 +6,16 @@
 $( document ).ready(function() {
   $('#cart-detail').hide();
   $('#main').hide();
-  $('#description-salad').hide();
-  $('#description-steak').hide();
-  $('#description-glace').hide();
-  $('#description-boissons').hide();
-  $('#description-poissons').hide();
-  $('#description-fromage').hide();
+  
+
+  $(".hover").mouseleave(
+  function () {
+    $(this).removeClass("hover");
+  }
+);
+
+
+
 });
 
 $('#btn-intro').click(function(){
@@ -34,19 +38,6 @@ var icecreamQt = {qt: 0};
 var drinkQt = {qt: 0};
 var fishQt = {qt: 0};
 var cheeseQt = {qt: 0};
-
-$('#img-Salade').on('mouseover', function(){  $('#description-salad').show(); });
-$('#img-Steak').on('mouseover', function(){  $('#description-steak').show(); });
-$('#img-Glace').on('mouseover', function(){  $('#description-glace').show(); });
-$('#img-Boisson').on('mouseover', function(){  $('#description-boissons').show(); });
-$('#img-poisson').on('mouseover', function(){  $('#description-poissons').show(); });
-$('#img-fromage').on('mouseover', function(){  $('#description-fromage').show(); });
-$('#description-salad').on('mouseout', function(){  $('#description-salad').hide(); });
-$('#description-steak').on('mouseout', function(){  $('#description-steak').hide(); });
-$('#description-glace').on('mouseout', function(){  $('#description-glace').hide(); });
-$('#description-boissons').on('mouseout', function(){  $('#description-boissons').hide(); });
-$('#description-poissons').on('mouseout', function(){  $('#description-poissons').hide(); });
-$('#description-fromage').on('mouseout', function(){  $('#description-fromage').hide(); });
 
 $('#btn-menu-salad').on('click', function() { ajouterArticle(salad, saladQt); });
 $('#btn-menu-steak').on('click', function() { ajouterArticle(steak, steakQt); });
