@@ -11,7 +11,8 @@ font-family: 'Raleway', sans-serif;
 @import url(http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
 
 body {
-	background-image: url(../img/background.png);
+	/*background-image: url(../img/background.png);*/
+	background: linear-gradient(20deg, #2778bb, #b55ef7);
 	font-family: 'Raleway', sans-serif;
 	text-align: center;
 	font-weight: bold;
